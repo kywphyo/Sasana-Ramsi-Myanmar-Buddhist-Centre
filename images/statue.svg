@@ -1,0 +1,7 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#f0f8ff"/>
+  <rect x="175" y="150" width="50" height="100" fill="#DAA520"/>
+  <circle cx="200" cy="120" r="30" fill="#FFD700"/>
+  <ellipse cx="200" cy="200" rx="25" ry="15" fill="#DAA520"/>
+  <text x="200" y="280" text-anchor="middle" font-family="serif" font-size="16" fill="#2c3e50">Buddha Statue</text>
+</svg>

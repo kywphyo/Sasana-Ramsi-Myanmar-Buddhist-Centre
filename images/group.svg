@@ -1,0 +1,10 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#fff8dc"/>
+  <circle cx="120" cy="150" r="25" fill="#DEB887"/>
+  <circle cx="200" cy="150" r="25" fill="#DEB887"/>
+  <circle cx="280" cy="150" r="25" fill="#DEB887"/>
+  <rect x="100" y="175" width="40" height="60" fill="#8B4513"/>
+  <rect x="180" y="175" width="40" height="60" fill="#8B4513"/>
+  <rect x="260" y="175" width="40" height="60" fill="#8B4513"/>
+  <text x="200" y="280" text-anchor="middle" font-family="serif" font-size="16" fill="#2c3e50">Group Meditation</text>
+</svg>
