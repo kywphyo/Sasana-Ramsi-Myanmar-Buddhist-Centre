@@ -18,6 +18,36 @@ body {
     padding: 0 20px;
 }
 
+/* Page Title Section */
+.page-title {
+    background-color: #6b4423;
+    color: white;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    border-bottom: 5px solid #ff9500;
+}
+
+.title-logo {
+    height: 80px;
+    width: 80px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.title-text h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: #ff9500;
+}
+
+.title-text p {
+    margin: 0.3rem 0 0 0;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
 /* Header and Navigation */
 header {
     background-color: rgba(61, 30, 1,0.9);
