@@ -2,10 +2,12 @@
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 
-hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    hamburger.classList.toggle('active');
-});
+if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
+}
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -19,35 +21,105 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
         }
         // Close mobile menu after clicking a link
-        navLinks.classList.remove('active');
-        hamburger.classList.remove('active');
+        if (navLinks && hamburger) {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
     });
 });
 
-// Contact form handling
-const contactForm = document.querySelector('.contact-form');
+// Gallery modal and lightbox functionality
+let currentPhotoIndex = 0;
+let currentAlbumPhotos = [];
 
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+// Define album data
+const albums = {
+    '2025': [
+        { src: 'images\\Sasanaramsi Vihara.jpg', alt: 'Main Monastery' },
+        { src: 'images\\Sasanaramsi Vihara 2.jpg', alt: 'Buddha Statue' },
+        { src: 'images\\Activities 2.jpg', alt: 'Meditation Hall' },
+        { src: 'images\\Activities 1.jpg', alt: 'Group Gathering' }
+    ],
+    '2024': [
+        { src: 'images\\Sasanaramsi Vihara 3.jpg', alt: 'Evening Prayer' },
+        { src: 'images\\Sasanaramsi Vihara 4.jpg', alt: 'Monastery Building' },
+        { src: 'images\\Activites 3.jpg', alt: 'Monastery Garden' },
+        { src: 'images\\U Thi.jpg', alt: 'Venerable Monk' }
+    ]
+};
+
+function openAlbum(element) {
+    const albumTitle = element.querySelector('.album-info h3').textContent;
+    const modal = document.getElementById('albumModal');
+    const photosContainer = document.getElementById('modalPhotosContainer');
     
-    // Get form data
-    const formData = new FormData(contactForm);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const message = formData.get('message');
+    // Set album title
+    document.getElementById('modalAlbumTitle').textContent = albumTitle;
     
-    // Simple validation
-    if (!name || !email || !message) {
-        alert('Please fill in all fields.');
-        return;
+    // Get photos for this album
+    const photos = albums[albumTitle] || [];
+    currentAlbumPhotos = photos;
+    
+    // Generate HTML for photos
+    photosContainer.innerHTML = photos.map((photo, index) => 
+        `<div class="photo-item" onclick="openLightbox(${index})">
+            <img src="${photo.src}" alt="${photo.alt}">
+        </div>`
+    ).join('');
+    
+    // Show modal
+    modal.classList.add('active');
+}
+
+function closeAlbum() {
+    document.getElementById('albumModal').classList.remove('active');
+}
+
+function openLightbox(index) {
+    currentPhotoIndex = index;
+    
+    // Display the lightbox with the selected photo
+    const photo = currentAlbumPhotos[currentPhotoIndex];
+    document.getElementById('lightboxImage').src = photo.src;
+    document.getElementById('lightbox').classList.add('active');
+    
+    // Prevent scrolling when lightbox is open
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+function nextPhoto() {
+    if (currentAlbumPhotos.length === 0) return;
+    currentPhotoIndex = (currentPhotoIndex + 1) % currentAlbumPhotos.length;
+    const photo = currentAlbumPhotos[currentPhotoIndex];
+    document.getElementById('lightboxImage').src = photo.src;
+}
+
+function previousPhoto() {
+    if (currentAlbumPhotos.length === 0) return;
+    currentPhotoIndex = (currentPhotoIndex - 1 + currentAlbumPhotos.length) % currentAlbumPhotos.length;
+    const photo = currentAlbumPhotos[currentPhotoIndex];
+    document.getElementById('lightboxImage').src = photo.src;
+}
+
+// Close lightbox with Escape key
+document.addEventListener('keydown', (e) => {
+    const lightbox = document.getElementById('lightbox');
+    if (e.key === 'Escape' && lightbox && lightbox.classList.contains('active')) {
+        closeLightbox();
     }
-    
-    // Here you would typically send the data to a server
-    // For now, we'll just show a success message
-    alert('Thank you for your message! We will get back to you soon.');
-    
-    // Reset form
-    contactForm.reset();
+});
+
+// Close modal when clicking outside of it
+window.addEventListener('click', (e) => {
+    const albumModal = document.getElementById('albumModal');
+    if (e.target === albumModal) {
+        closeAlbum();
+    }
 });
 
 // Add some interactive effects
