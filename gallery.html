@@ -30,63 +30,50 @@
     <section id="gallery">
         <div class="container">
             <h2>Gallery</h2>
-            
-            <!-- 2025 Gallery -->
-            <div class="gallery-year">
-                <div class="gallery-cover" onclick="toggleGallery(this)">
-                    <h3>2025</h3>
-                    <img src="images\Sasanaramsi Vihara.jpg" alt="Main Monastery">
-                    <span class="expand-icon">+</span>
+            <div class="gallery-albums">
+                <!-- 2025 Album -->
+                <div class="album-tile" onclick="openAlbum(this)">
+                    <img src="images\Sasanaramsi Vihara.jpg" alt="2025 Album">
+                    <div class="album-info">
+                        <h3>2025</h3>
+                        <p>4 photos</p>
+                    </div>
                 </div>
-                <div class="gallery-grid" style="display:none;">
-                    <div class="gallery-item">
-                        <img src="images\Sasanaramsi Vihara.jpg" alt="Main Monastery">
-                        <p class="gallery-description">The main sanctuary of Sasana Ramsi Vihara during morning meditation sessions.</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images\Sasanaramsi Vihara 2.jpg" alt="Buddha Statue">
-                        <p class="gallery-description">Sacred Buddha statue in the meditation chamber, center of our spiritual practice.</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images\Activities 2.jpg" alt="Meditation Hall">
-                        <p class="gallery-description">Members engaged in daily meditation practice during morning sessions.</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images\Activities 1.jpg" alt="Group Gathering">
-                        <p class="gallery-description">Community gathering for Dhamma talks and spiritual discussions.</p>
+                
+                <!-- 2024 Album -->
+                <div class="album-tile" onclick="openAlbum(this)">
+                    <img src="images\Sasanaramsi Vihara 3.jpg" alt="2024 Album">
+                    <div class="album-info">
+                        <h3>2024</h3>
+                        <p>4 photos</p>
                     </div>
                 </div>
             </div>
-            
-            <!-- 2024 Gallery -->
-            <div class="gallery-year">
-                <div class="gallery-cover" onclick="toggleGallery(this)">
-                    <h3>2024</h3>
-                    <img src="images\Sasanaramsi Vihara 3.jpg" alt="Evening Prayer">
-                    <span class="expand-icon">+</span>
-                </div>
-                <div class="gallery-grid" style="display:none;">
-                    <div class="gallery-item">
-                        <img src="images\Sasanaramsi Vihara 3.jpg" alt="Evening Prayer">
-                        <p class="gallery-description">Evening prayer session at the vihara courtyard with monks and devotees.</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images\Sasanaramsi Vihara 4.jpg" alt="Monastery Building">
-                        <p class="gallery-description">The peaceful architecture and serene setting of our monastery.</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images\Activites 3.jpg" alt="Monastery Garden">
-                        <p class="gallery-description">Beautiful gardens at the vihara providing a tranquil space for meditation and reflection.</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images\U Thi.jpg" alt="Venerable Monk">
-                        <p class="gallery-description">Venerable Monk leading the community in spiritual practice and teachings.</p>
-                    </div>
-                </div>
-            </div>
-            
         </div>
     </section>
+
+    <!-- Album Modal -->
+    <div id="albumModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalAlbumTitle">Album</h2>
+                <button class="close-modal" onclick="closeAlbum()">&times;</button>
+            </div>
+            <div class="modal-photos" id="modalPhotosContainer">
+                <!-- Photos will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-container">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <button class="lightbox-prev" onclick="previousPhoto()">&#10094;</button>
+            <img id="lightboxImage" class="lightbox-image" src="" alt="">
+            <button class="lightbox-next" onclick="nextPhoto()">&#10095;</button>
+        </div>
+    </div>
 
     <footer>
         <div class="container">
