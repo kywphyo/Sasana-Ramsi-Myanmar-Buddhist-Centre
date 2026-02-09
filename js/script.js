@@ -34,6 +34,12 @@ let currentAlbumPhotos = [];
 
 // Define album data
 const albums = {
+    '2026': [
+        { src: 'images\\Sasanaramsi Vihara.jpg', alt: 'Main Monastery' },
+        { src: 'images\\Sasanaramsi Vihara 2.jpg', alt: 'Buddha Statue' },
+        { src: 'images\\Activities 2.jpg', alt: 'Meditation Hall' },
+        { src: 'images\\Activities 1.jpg', alt: 'Group Gathering' }
+    ],
     '2025': [
         { src: 'images\\Sasanaramsi Vihara.jpg', alt: 'Main Monastery' },
         { src: 'images\\Sasanaramsi Vihara 2.jpg', alt: 'Buddha Statue' },
@@ -45,6 +51,30 @@ const albums = {
         { src: 'images\\Sasanaramsi Vihara 4.jpg', alt: 'Monastery Building' },
         { src: 'images\\Activites 3.jpg', alt: 'Monastery Garden' },
         { src: 'images\\U Thi.jpg', alt: 'Venerable Monk' }
+    ],
+    '2023': [
+        { src: 'images\\Sasanaramsi Vihara 2.jpg', alt: 'Buddha Statue' },
+        { src: 'images\\Sasanaramsi Vihara 3.jpg', alt: 'Evening Prayer' },
+        { src: 'images\\Activities 1.jpg', alt: 'Group Gathering' },
+        { src: 'images\\U Thi.jpg', alt: 'Venerable Monk' }
+    ],
+    '2022': [
+        { src: 'images\\Activities 2.jpg', alt: 'Meditation Hall' },
+        { src: 'images\\Sasanaramsi Vihara 4.jpg', alt: 'Monastery Building' },
+        { src: 'images\\Activites 3.jpg', alt: 'Monastery Garden' },
+        { src: 'images\\Sasanaramsi Vihara.jpg', alt: 'Main Monastery' }
+    ],
+    '2021': [
+        { src: 'images\\Activities 1.jpg', alt: 'Group Gathering' },
+        { src: 'images\\Sasanaramsi Vihara.jpg', alt: 'Main Monastery' },
+        { src: 'images\\Sasanaramsi Vihara 3.jpg', alt: 'Evening Prayer' },
+        { src: 'images\\Activities 2.jpg', alt: 'Meditation Hall' }
+    ],
+    '2020': [
+        { src: 'images\\Sasanaramsi Vihara.jpg', alt: 'Main Monastery' },
+        { src: 'images\\Sasanaramsi Vihara 2.jpg', alt: 'Buddha Statue' },
+        { src: 'images\\Sasanaramsi Vihara 3.jpg', alt: 'Evening Prayer' },
+        { src: 'images\\Sasanaramsi Vihara 4.jpg', alt: 'Monastery Building' }
     ]
 };
 
